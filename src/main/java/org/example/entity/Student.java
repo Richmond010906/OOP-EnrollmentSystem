@@ -1,4 +1,4 @@
-package org.example;
+package org.example.entity;
 
 public class Student {
     private String studentID;
@@ -35,5 +35,14 @@ public class Student {
 
     public void setProgram(String program){
         this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentID='" + studentID + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 }

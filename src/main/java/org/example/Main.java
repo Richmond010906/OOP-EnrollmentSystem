@@ -1,38 +1,39 @@
 package org.example;
 
-import java.util.*;
+import org.example.entity.Course;
+import org.example.entity.Student;
+import org.example.service.CourseRegistration;
+import org.example.service.StudentRegistration;
 
 public class Main{
     public static void main(String[] args){
 
-    Student lulu = new Student();
-    lulu.setStudentID("2024372391");
-    lulu.setStudentName("Charles Richmond De Ocampo");
-    lulu.setProgram("CITE");
 
-    Student fuck = new Student();
-    fuck.setStudentID("202563728");
-    fuck.setStudentName("Justine Lubrica");
-    fuck.setProgram("CITE");
+        StudentRegistration love = new StudentRegistration();
 
-    Course ulol = new Course();
-    ulol.setCourseID("000202344");
-    ulol.setCourseName("Integrative Programming");
-    ulol.setProgram("Information Technology");
+        love.addStudent(new Student("S202401", "De Ocampo, Richmond", "Information Technology"));
+        love.addStudent(new Student("S202409", "Rosas, Ashley", "Architecture"));
+
+        love.displayAll();
+
+        love.updatePerson(new Student("S202401", "De Ocampo, Richmond", "Computer Science"));
+        love.displayAll();
+
+        love.deletePersonRecord(new Student("S202401", "De Ocampo, Richmond", "Information Technology"));
+        love.displayAll();
 
 
-        System.out.println("Student ID: " + lulu.getStudentID());
-        System.out.println("Student Name: " + lulu.getStudentName());
-        System.out.println("Program: " + lulu.getProgram());
-        System.out.println(" ");
-        System.out.println("Student ID: " + fuck.getStudentID());
-        System.out.println("Student Name: " + fuck.getStudentName());
-        System.out.println("Program: " + fuck.getProgram());
-        System.out.println(" ");
-        System.out.println("Course ID: " + ulol.getCourseID());
-        System.out.println("Course Name: " + ulol.getCourseName());
-        System.out.println("Program: " + ulol.getProgram());
+
+        CourseRegistration babyko = new CourseRegistration();
+
+        babyko.addCourse(new Course("101", "BSIT", "CITE"));
+
+        babyko.displayAll();
+
+        babyko.updatePerson(new Course("101", "BSCS", "CITE"));
+        babyko.displayAll();
+
+        babyko.deletePersonRecord(new Course("101","BSIT", "CITE"));
+        babyko.displayAll();
     }
-
-
 }

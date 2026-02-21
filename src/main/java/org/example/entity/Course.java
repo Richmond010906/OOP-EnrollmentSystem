@@ -1,4 +1,4 @@
-package org.example;
+package org.example.entity;
 
 public class Course {
     private String courseID;
@@ -8,7 +8,7 @@ public class Course {
     public Course(){
 
     }
-    public Course(String courseID, String courseName, String programe){
+    public Course(String courseID, String courseName, String program){
     this.courseID = courseID;
     this.courseName = courseName;
     this.program = program;
@@ -35,5 +35,14 @@ public class Course {
 
     public void setProgram(String program){
         this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 }
