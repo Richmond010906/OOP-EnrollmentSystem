@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entity.Course;
+import org.example.entity.Instructor;
 import org.example.entity.Student;
 import org.example.service.CourseRegistration;
 import org.example.service.StudentRegistration;
@@ -35,5 +36,8 @@ public class Main{
 
         babyko.deletePersonRecord(new Course("101","BSIT", "CITE"));
         babyko.displayAll();
+
+        Instructor instructor = new Instructor();
+
     }
 }
