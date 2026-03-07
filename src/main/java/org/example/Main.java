@@ -11,6 +11,7 @@ public class Main{
 
 
         StudentRegistration love = new StudentRegistration();
+        CourseRegistration babyko = new CourseRegistration();
 
         love.addStudent(new Student("S202401", "De Ocampo, Richmond", "Information Technology"));
         love.addStudent(new Student("S202409", "Rosas, Ashley", "Architecture"));
@@ -24,9 +25,6 @@ public class Main{
         love.displayAll();
 
 
-
-        CourseRegistration babyko = new CourseRegistration();
-
         babyko.addCourse(new Course("101", "BSIT", "CITE"));
 
         babyko.displayAll();
@@ -36,8 +34,5 @@ public class Main{
 
         babyko.deletePersonRecord(new Course("101","BSIT", "CITE"));
         babyko.displayAll();
-
-        Instructor instructor = new Instructor();
-
     }
 }
