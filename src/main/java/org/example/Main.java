@@ -5,11 +5,10 @@ import org.example.entity.Instructor;
 import org.example.entity.Student;
 import org.example.service.CourseRegistration;
 import org.example.service.StudentRegistration;
+import org.example.service.TuitionFeePayment;
 
 public class Main{
     public static void main(String[] args){
-
-
         StudentRegistration love = new StudentRegistration();
         CourseRegistration babyko = new CourseRegistration();
 
@@ -34,5 +33,12 @@ public class Main{
 
         babyko.deletePersonRecord(new Course("101","BSIT", "CITE"));
         babyko.displayAll();
+
+        TuitionFeePayment tuitionFeePayment = new TuitionFeePayment();
+        System.out.println(tuitionFeePayment.calculateTuitionFee(3,0));
+        tuitionFeePayment.makePayment(1000);
+
+        System.out.println(tuitionFeePayment.getBalance());
+        System.out.println(tuitionFeePayment.isFullyPaid());
     }
 }
