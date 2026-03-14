@@ -1,6 +1,6 @@
 package org.example.entity;
 
-public class Course {
+public class Course extends Person {
     private String courseID;
     private String courseName;
     private String program;
@@ -8,6 +8,12 @@ public class Course {
     public Course(){
 
     }
+
+    @Override
+    public void mainTask() {
+
+    }
+
     public Course(String courseID, String courseName, String program){
     this.courseID = courseID;
     this.courseName = courseName;

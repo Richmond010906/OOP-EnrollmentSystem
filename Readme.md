@@ -22,3 +22,14 @@ Student.java
 
 Instructor.java
 ![](src/main/resources/images/Instructor.png)
+
+
+---
+
+**Abstraction**
+
+![](src/main/resources/images/PersonAbstraction.png)
+
+![](src/main/resources/images/InstructorAbstraction.png)
+
+![](src/main/resources/images/StudentAbstraction.png)
