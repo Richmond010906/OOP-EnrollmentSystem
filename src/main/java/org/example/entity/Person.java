@@ -8,7 +8,7 @@ public abstract class Person {
 
     public Person(String personID, String personName){
         this.personID = personID;
-        this.personID = personName;
+        this.personName = personName;
     }
     public String getPersonID(){
         return personID;

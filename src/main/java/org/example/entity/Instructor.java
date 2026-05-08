@@ -17,5 +17,10 @@ public  class Instructor extends Person{
 
     @Override
     public void mainTask() {
+        System.out.println("Instructor " + getPersonName() + "is grading " + course + " assignments");
+    }
+    @Override
+    public String toString() {
+        return String.format("Instructor{id='%s', name='%s', course='%s'}", getPersonID(), getPersonName(), course);
     }
 }
