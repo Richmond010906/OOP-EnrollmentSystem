@@ -2,49 +2,53 @@ package org.example.service;
 
 import org.example.entity.Student;
 import java.util.ArrayList;
+import java.util.List;
 
-public class StudentRegistration implements StudentReg{
+public class StudentRegistration implements IStudentService{
 
-    private ArrayList<Student> studentLists = new ArrayList<>();
+    private final List<Student> students = new ArrayList<>();
 
     @Override
     public void addStudent(Student student) {
-        if (studentLists.size() >= 30){
-            System.out.println("Registration Failed: Section i full!");
-            return;
-        }
-        studentLists.add(student);
-    }
-
-    @Override
-    public void displayAllStudent() {
-        System.out.println("==========================================================");
-        System.out.printf("%-10s | %-20s | %-15s\n", "ID", "NAME", "PROGRAM");
-        System.out.println("----------------------------------------------------------");
-        for (Student s : studentLists) {
-            System.out.printf("%-10s | %-20s | %-15s\n",
-                    s.getPersonID(), s.getPersonName(), s.getProgram());
-        }
-        System.out.println("==========================================================");
+        if (student == null) throw new IllegalArgumentException("Student cannot be null.");
+        if (student.getPersonID() == null || student.getPersonID().isBlank())
+            throw new IllegalArgumentException("Student ID cannot be empty.");
+        if (findStudentByID(student.getPersonID()) != null)
+            throw new IllegalArgumentException("Duplicate Student ID: '" + student.getPersonID() + "' already exists.");
+        students.add(student);
+        System.out.println("Student '" + student.getPersonName() + "' registered successfully.");
     }
 
     @Override
     public void updateStudent(Student student){
-        for(int i = 0; i < studentLists.size(); i++){
-            if(studentLists.get(i).getPersonID().equals(student.getPersonName())){
-                studentLists.set(i, student);
-                break;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getPersonID().equals(student.getPersonID())) {
+                students.set(i, student);
+                System.out.println("Student '" + student.getPersonName() + "' updated successfully.");
+                return;
             }
         }
+        throw new IllegalArgumentException("Student ID '" + student.getPersonID() + "' not found.");
     }
 
     @Override
-    public void deleteStudentRecord(Student student) {
-        for (int i = 0; i < studentLists.size(); i++) {
-            if (studentLists.get(i).getPersonID().equals(student.getPersonName())) {
-                studentLists.remove(i);
-                break;
-            }
+    public void removeStudent(String studentID) {
+        Student s = findStudentByID(studentID);
+        if (s == null) throw new IllegalArgumentException("Student ID '" + studentID + "' not found.");
+        students.remove(s);
+        System.out.println("Student '" + s.getPersonName() + "' removed successfully.");
+    }
+    @Override
+    public List<Student> getAllStudents() {
+        return new ArrayList<>(students);
+    }
+
+    @Override
+    public Student findStudentByID(String studentID) {
+        for (Student s : students) {
+            if (s.getPersonID().equals(studentID)) return s;
         }
+        return null;
     }
 }
+
